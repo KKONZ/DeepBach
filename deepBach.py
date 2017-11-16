@@ -7,7 +7,7 @@ import argparse
 import os
 import pickle
 
-from keras import *
+from keras import optimizers
 from keras.models import model_from_json, model_from_yaml
 from models_zoo import deepBach, deepbach_skip_connections
 from music21 import midi, converter
@@ -678,7 +678,7 @@ def train_models(model_name, steps_per_epoch, num_epochs, validation_steps, time
         model_path_name = 'models/' + model_name + '_' + str(voice_index)
 
         model = load_model(model_path_name)
-        adam = keras.optimizers.Adam(lr=1e-6)
+        adam = optimizers.Adam(lr=1e-6)
         model.compile(optimizer=adam, loss={'pitch_prediction': 'categorical_crossentropy'
                                               },
                       metrics=['accuracy'])
