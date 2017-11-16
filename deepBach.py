@@ -7,6 +7,7 @@ import argparse
 import os
 import pickle
 
+from keras import *
 from keras.models import model_from_json, model_from_yaml
 from models_zoo import deepBach, deepbach_skip_connections
 from music21 import midi, converter
