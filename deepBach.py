@@ -677,8 +677,8 @@ def train_models(model_name, steps_per_epoch, num_epochs, validation_steps, time
         model_path_name = 'models/' + model_name + '_' + str(voice_index)
 
         model = load_model(model_path_name)
-
-        model.compile(optimizer='adam', loss={'pitch_prediction': 'categorical_crossentropy'
+        adam = Adam(lr=1e-6)
+        model.compile(optimizer=adam, loss={'pitch_prediction': 'categorical_crossentropy'
                                               },
                       metrics=['accuracy'])
 
