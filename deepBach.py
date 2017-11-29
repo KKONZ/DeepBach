@@ -679,7 +679,7 @@ def train_models(model_name, steps_per_epoch, num_epochs, validation_steps, time
 
         model = load_model(model_path_name)
         #adam = optimizers.Adam(lr=0.0001, epsilon=1e-05, decay = .0001) Used up to 11/22/2017 on Azure
-        adam = optimizers.Adam(lr=0.0005) # removing non lr parameters
+        adam = optimizers.Adam(lr=0.00001) # removing non lr parameters
         model.compile(optimizer=adam, loss={'pitch_prediction': 'categorical_crossentropy'
                                               },
                       metrics=['accuracy'])
